@@ -1,10 +1,7 @@
 package com.example.springblog;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class FirstController {
@@ -19,6 +16,12 @@ public class FirstController {
     @ResponseBody
     public String bubbles() {
         return "Bubbububbububububububububububububububu";
+    }
+
+    @GetMapping("/greeting/{name}/{lastname}")
+    @ResponseBody
+    public String greeting(@PathVariable String name, @PathVariable String lastname) {
+        return "Greetings " + name + " " +  lastname;
     }
 
 }
